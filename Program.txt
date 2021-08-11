@@ -78,15 +78,17 @@ if len(password) >= 6:
         userinput = input("Enter the password : ")
         if userinput == password:
             print(TGREEN + "Access Granted", TWHITE)
-            with open("Program") as file:
-                filedata = file.readlines()
-                for l in filedata:
-                    print(l)
+            try :
+                with open("Program") as file:
+                    filedata = file.readlines()
+                    for l in filedata:
+                        print(l)
+            except :
+                print("Unable to Open File")
         else:
             print(TRED + "Access Denied.Try again")
     if (charlist.count(True) < 1 or intlist.count(True) < 1
             or symlist.count(True) < 1):
         print("Choose a stronger password")
-    else:
-        print("Password must contain six digits")
-       
+else:
+    print("Password must contain six digits")
